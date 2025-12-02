@@ -1,19 +1,41 @@
-class ScoreManager {
+// ===============================================
+// ScoreManager.java
+// ===============================================
+
+
+//================================================
+// IScoreManager Interface
+//================================================
+interface IScoreManager {
+    void incrementScore();
+    int getScore();
+    void resetScore();
+}
+
+//================================================
+// Implementation of IScoreManager
+//================================================
+public class ScoreManager implements IScoreManager {
 
     private int score;
 
+    // Constructor to initialize score
     public ScoreManager() {
         this.score = 0;
     }
 
+    // Implementing interface methods
+    @Override
     public void incrementScore() {
         score++;
     }
 
+    @Override
     public int getScore() {
         return score;
     }
 
+    @Override
     public void resetScore() {
         score = 0;
     }
