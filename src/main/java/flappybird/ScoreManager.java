@@ -1,4 +1,4 @@
-package main.java.flappybird.java;
+package main.java.flappybird;
 
 public class ScoreManager {
     
