@@ -45,49 +45,6 @@ public class GamePanel extends JPanel implements ActionListener {
     private float darknessAlpha = 0f;
     private Color darkOverlay = new Color(0, 0, 0, 0);
 
-//Another way to try sprite using spriteimage helper class
-
-    // Image spriteSheetImage =
-    // new ImageIcon(getClass().getResource("/assets/sprites.png")).getImage();
-    // SpriteSheet spriteSheet = new SpriteSheet(spriteSheetImage);    
-/*
-
-Trial for sprite image implementation
-    BufferedImage sheet;
-    {
-        java.io.InputStream is = null;
-        try{
-            is = GamePanel.class.getResourceAsStream("/assets/sprites.png");
-            if(is == null){
-                System.err.println("Sprite Resource is not found in specified directory");
-                sheet = new BufferedImage(480,160, BufferedImage.TYPE_INT_ARGB);
-                Graphics2D g = sheet.createGraphics();
-                g.setColor(Color.MAGENTA);
-                // g.fillArc(0, 0, sheet.getWidth(), sheet.getHeight(), 0, 360);
-                g.fillRect(0, 0, sheet.getWidth(), sheet.getHeight());
-                g.dispose();
-            }
-            else {
-                sheet = ImageIO.read(is);
-            }
-        } catch(IOException e) {
-            e.printStackTrace();
-            if(sheet == null){
-                sheet = new BufferedImage(80,100, BufferedImage.TYPE_INT_ARGB);
-            }
-        } finally {
-            if(is != null){
-                try {is.close();} catch (IOException ignored){}
-            }
-        }
-    }
-    protected int sheetScale = sheet.getWidth()/6;
-    Image sprite;
-
-    public void paint(Graphics2D g2d){
-        // g2d.drawImage(sprite, x, y, null);
-    }
-        **/
 
     /**
      * Constructor for the GamePanel.
@@ -99,12 +56,8 @@ Trial for sprite image implementation
 
         
         // Load images
-        
         backgroundImg = Assets.BACKGROUND;
         gameOverImg = Assets.GAMEOVER;
-        // birdImg = Assets.BIRD;
-        // topPipeImg = Assets.PIPE_TOP;
-        // bottomPipeImg = Assets.PIPE_BOTTOM;
 
         // Initialize game objects
         bird = new Bird(boardWidth / 8, boardHeight / 2, 51, 36);
@@ -347,9 +300,7 @@ Trial for sprite image implementation
     gameLoopTimer.start();
 }
 
-
     // Getter methods for bird and game state
-
     public Bird getBird() {
         return bird;
     }

@@ -2,13 +2,11 @@ package src;
 
 import java.util.ArrayDeque;
 
-
 public class PipePool {
     private final ArrayDeque<Pipe> pool = new ArrayDeque<>();
 
     // public PipePool() {
     // }
-
     //We aquire a pipe or create new if empty
     public Pipe acquire(int startX, int topY, int width, int height, int vGap, int speed){
         if (pool.isEmpty()) {
@@ -20,7 +18,6 @@ public class PipePool {
         }
     }
 
-    
     //Release a pipe back to the pool for reuse.
     public void release(Pipe p) {
         pool.push(p);

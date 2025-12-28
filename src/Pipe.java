@@ -27,7 +27,6 @@ public class Pipe {
     private final Rectangle topBounds = new Rectangle();
     private final Rectangle bottomBounds = new Rectangle();
 
-
     /**
      * Constructor for Pipe pair.
      * Note: prefer creating via PipePool or calling reset after construction.
