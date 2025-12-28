@@ -11,9 +11,6 @@ public class Main {
         // Load game assets
         Assets.load();
 
-
-
-
         JFrame frame = new JFrame("Flappy Bird");
         // frame.setVisible(true);
         

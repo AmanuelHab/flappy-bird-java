@@ -1,10 +1,7 @@
 package src;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics;
-// import java.awt.Image;
 import java.awt.Rectangle;
-// import java.nio.Buffer;
-// import src.SpriteSheet.Sprites;
 /**
  * Bird class manages the bird's position, movement, and drawing.
  */
@@ -39,7 +36,6 @@ public class Bird {
             velocityY = 0;
         }
     }
-
     /**
      * Causes the bird to jump by setting its vertical velocity.
      */
@@ -47,29 +43,17 @@ public class Bird {
         velocityY = JUMP_FORCE;
     }
 
-    //wrong use of sprite ... (AGAIN)
-    // public void draw(Graphics g) {
-    // Rectangle s = Sprites.BIRD;
-    // g.drawImage(
-    //     sheet.getImage(),
-    //     x, y, x + width, y + height,
-    //     s.x, s.y, s.x + s.width, s.y + s.height,
-    //     null
-    // );
-
     // Draws the bird on the screen
     public void draw(Graphics g) {
         g.drawImage(img, x, y, width, height, null);
     }
 
-    
       //Resets the bird to the given position and stops vertical movement.
     public void reset(int newX, int newY) {
         this.x = newX;
         this.y = newY;
         this.velocityY = 0;
     }
-
     
      //Gets the bounding rectangle of the bird for collision detection.
     public Rectangle getBounds() {
