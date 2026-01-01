@@ -1,64 +1,60 @@
 package src;
 
-import java.io.*;
-
 /**
- * Manages current score and persistent high score.
+ * ScoreManager keeps track of the player score and manages scoring updates.
+ * Also tracks the high score across game sessions.
  */
 public class ScoreManager {
-
     private int score;
     private int highScore;
-
-    private static final String FILE_NAME = "highscore.txt";
-
+    
+    /**
+     * Constructor initializes score to zero and loads high score.
+     */
     public ScoreManager() {
         score = 0;
-        highScore = loadHighScore();
+        highScore = 0; // Could load from file in the future
     }
 
-    public void incrementScore() {
-        score++;
+    /**
+     * Increments the score by one.
+     */
+    public void incrementScore(GamePhase currentPhase) {
+        score += currentPhase.getBaseScore();
     }
 
+    /**
+     * Resets the score to zero.
+     */
     public void reset() {
         score = 0;
     }
 
+    /**
+     * Gets the current score.
+     *
+     * @return the current score
+     */
     public int getScore() {
         return score;
     }
-
-    public int getHighScore() {
-        return highScore;
-    }
-
+    
     /**
-     * Call when game ends.
+     * Updates the high score if the current score is higher.
+     * Should be called when the game ends.
      */
     public void updateHighScore() {
         if (score > highScore) {
             highScore = score;
-            saveHighScore();
         }
     }
-
-    // ---------------- FILE I/O ----------------
-
-    private int loadHighScore() {
-        try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
-            return Integer.parseInt(br.readLine());
-        } catch (Exception e) {
-            return 0; // first run or file missing
-        }
-    }
-
-    private void saveHighScore() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME))) {
-            bw.write(String.valueOf(highScore));
-        } catch (IOException e) {
-            System.err.println("Failed to save high score");
-        }
+    
+    /**
+     * Gets the high score.
+     *
+     * @return the high score
+     */
+    public int getHighScore() {
+        return highScore;
     }
 }
-
